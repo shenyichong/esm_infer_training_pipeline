@@ -4,12 +4,12 @@
 NUM_FILES_TO_UNZIP=$1
 ESM_DATABASE_DIR="/data_0/esm_altas_data"  # Directory containing .tar.gz files
 UNZIP_DESTINATION="/data_0/esm_altas_data" # Directory containing unzip directory
-SEQS_DESTINATION="/home/shenyichong/pdb_inference_pipline/esm_plddt_60_seqs"  # Where to save sequence CSV files
-INFER_RESULTS_DESTINATION="/home/shenyichong/pdb_inference_pipline/esm_plddt_60_infer_result"  # Where to save inference results
+SEQS_DESTINATION="esm_plddt_60_seqs"  # Where to save sequence CSV files
+INFER_RESULTS_DESTINATION="esm_plddt_60_infer_result"  # Where to save inference results
 MODEL_PATH="/root/cell/DimerPLM/esm_training_example_code/esm2_t33_650M_UR50D-feb25/checkpoint-15830/"  # ESM model path 
 
 # # Step 1: Unzip .tar.gz files
-# python unzip_esm_db.py --num_files $NUM_FILES_TO_UNZIP --input_dir "$ESM_DATABASE_DIR" 
+python unzip_esm_db.py --num_files $NUM_FILES_TO_UNZIP --input_dir "$ESM_DATABASE_DIR" 
 
 # Newly unzipped directories will be logged in esm_created_directories.log
 NEW_DIRECTORIES=$(cat esm_created_directories.log)
